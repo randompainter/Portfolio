@@ -1,4 +1,3 @@
-#Import random module 
 import random 
  
 #Create a list of option options 
