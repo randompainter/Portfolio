@@ -1,3 +1,4 @@
+# Simple starter project
 import random 
  
 #Create a list of option options 
