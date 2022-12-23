@@ -17,30 +17,30 @@ while player == False:
     player = input("\n(Rock), (Paper) or (Scissors)?: ").capitalize()
     if player == computer_action: 
         print("Computer chooses", computer_action)
-        print("Tie!") 
+        print("(Tie!)") 
     elif player == "Rock": 
         if computer_action == "Paper": 
             print("Computer chooses", computer_action)
-            print("You lose!") 
+            print("(You lose!)") 
         else: 
             print("Computer chooses", computer_action)
-            print("You win!") 
+            print("(You win!)") 
     elif player == "Paper": 
-        if computer_action == "Scissors": 
+        if computer_action == "Scissors" or "Scissor": 
             print("Computer chooses", computer_action)
             print("You lose!") 
         else: 
             print("Computer chooses", computer_action)
-            print("You win!") 
+            print("(You win!)") 
     elif player == "Scissors": 
         if computer_action == "Rock": 
             print("Computer chooses", computer_action)
-            print("You lose") 
+            print("(You lose)") 
         else: 
             print("Computer chooses", computer_action)
-            print("You win!") 
+            print("(You win!)") 
     else: 
-        print("That's not a valid option, please check again") 
+        print("Invalid option, please try again") 
     # Set player to False to continue loop
     player = False 
     # Assign computer with a new action
