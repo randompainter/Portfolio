@@ -26,7 +26,7 @@ while player == False:
             print("Computer chooses", computer_action)
             print("(You win!)") 
     elif player == "Paper": 
-            if computer_action == "Scissors":
+            if computer_action == "Scissors" or "Scissor":
             print("Computer chooses", computer_action)
             print("You lose!") 
         else: 
