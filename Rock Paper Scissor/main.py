@@ -12,7 +12,7 @@ player = False
 
 
 while player == False: 
-#Set the player to True 
+ 
     print("|Rock, Paper and Scissors|")
     player = input("\n(Rock), (Paper) or (Scissors)?: ").capitalize()
     if player == computer_action: 
