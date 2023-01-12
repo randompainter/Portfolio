@@ -3,9 +3,9 @@ import random
 
 pygame.init()
 # Used for random star location
-star_x = 800
+star_x = 750
 star_y = 600
-screen_size = (800, 600)
+screen_size = (800, 700)
 screen = pygame.display.set_mode(screen_size)
 pygame.display.set_caption("Constellation Maker")
 BLACK = (0, 0, 0)
@@ -20,11 +20,12 @@ def drawMain():
   # Make background black and give users instructions about how to use the program
     screen.fill(BLACK)
     text = font.render("(Click anywhere on the canvas to start making your own constellation)", True, WHITE)
-    text2 = font.render("(Down arrow key to delete the last star)", True, WHITE)
+    text2 = font.render("(Down arrow = Delete last star, Up arrow = Clear all stars, Left = Place a random star, Right = Create a random Constellation)", True, WHITE)
     screen.blit(text, [180, 25])
-    screen.blit(text2, [265, 550])
-    pygame.display.flip()
+    screen.blit(text2, [5, 650])
+    pygame.display.update()
     Star.main()
+
 # Star class
 class Star:
   def __init__(self, x, y, r, colour):
@@ -38,7 +39,7 @@ class Star:
     pygame.display.flip()
 # Connect starOne and starTwo with a line
   def connectStars(starOne, starTwo):
-    pygame.draw.line(screen, GRAY, (starOne.x, starOne.y), (starTwo.x, starTwo.y))
+    pygame.draw.line(screen, WHITE, (starOne.x, starOne.y), (starTwo.x, starTwo.y))
 # Delete the last star added
   def deleteStar(stars):
     if len(stars) > 0:
@@ -51,7 +52,7 @@ class Star:
     stars.append(Star((random.randint(0, star_x)),(random.randint(0, star_y)), 5, BLUE))
 # Generate multiple random stars on the canvas to make them look like a constellation that may exist
   def randomConstellation(stars):
-    for n in range(8):
+    for n in range(4, 12):
        stars.append(Star((random.randint(0, star_x)),(random.randint(0, star_y)), 5, BLUE))
     
 # Clear the entire board of stars
@@ -62,7 +63,7 @@ class Star:
     done = False
     while not done:
       # Game set to True and will continue till it is set to False
-      for event in pygame.event.get():
+      for event in pygame.event.get():                                       
         if event.type == pygame.QUIT:
             done = True
         # Append stars to list at user position
