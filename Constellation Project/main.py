@@ -96,7 +96,7 @@ class Star:
           Star.drawStars(stars[i])
           if (len(stars) > 1 and i + 1 < len(stars)):
             Star.connectStars(stars[i], stars[i + 1])
-    # Quit Constellation pygames
+
     pygame.quit()
 
 drawMain()
