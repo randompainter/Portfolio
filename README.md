@@ -1,2 +1,2 @@
 # Portfolio
-Portfolio of personal projects
+Personal project made using python, pygame, and others
