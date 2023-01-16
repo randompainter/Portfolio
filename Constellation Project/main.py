@@ -52,7 +52,7 @@ class Star:
     stars.append(Star((random.randint(0, star_x)),(random.randint(0, star_y)), 5, BLUE))
 # Generate multiple random stars on the canvas to make them look like a constellation that may exist
   def randomConstellation(stars):
-    for n in range(4, 12):
+    for n in range(8):
        stars.append(Star((random.randint(0, star_x)),(random.randint(0, star_y)), 5, BLUE))
     
 # Clear the entire board of stars
