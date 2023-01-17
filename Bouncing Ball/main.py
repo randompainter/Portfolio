@@ -40,7 +40,7 @@ def main():
     # Set the height and width of the screen
     size = [SCREEN_WIDTH, SCREEN_HEIGHT]
     screen = pygame.display.set_mode(size)
- 
+    
     pygame.display.set_caption("Bouncing Balls")
  
     # Loop until the user clicks the close button.
