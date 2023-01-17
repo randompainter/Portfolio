@@ -5,9 +5,9 @@ import random
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
  
-SCREEN_WIDTH = 700
-SCREEN_HEIGHT = 500
-BALL_SIZE = 25
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 600
+BALL_SIZE = 20
 Ball_Color = (random.randrange(255), random.randrange(255), random.randrange(255))
  
 class Ball:
@@ -17,31 +17,25 @@ class Ball:
     def __init__(self):
         self.x = 0
         self.y = 0
-        self.change_x = 0
-        self.change_y = 0
- 
+        self.x2 = 0
+        self.y2 = 0
  
 def make_ball():
-    """
-    Function to make a new, random ball.
-    """
+    # Creating a new ball
     ball = Ball()
-    # Starting position of the ball.
-    # Take into account the ball size so we don't spawn on the edge.
-    ball.x = random.randrange(BALL_SIZE, SCREEN_WIDTH - BALL_SIZE)
-    ball.y = random.randrange(BALL_SIZE, SCREEN_HEIGHT - BALL_SIZE)
+    # Starting location of where the ball will spawn
+    ball.x = random.randrange(BALL_SIZE, SCREEN_WIDTH)
+    ball.y = random.randrange(BALL_SIZE, SCREEN_HEIGHT)
  
-    # Speed and direction of rectangle
-    ball.change_x = random.randrange(-2, 3)
-    ball.change_y = random.randrange(-2, 3)
+    # Speed speed of the ball
+    ball.x2 = random.randrange(-2, 3)
+    ball.y2 = random.randrange(-2, 3)
  
     return ball
  
  
 def main():
-    """
-    This is our main program.
-    """
+    # Init all modules
     pygame.init()
  
     # Set the height and width of the screen
@@ -61,29 +55,46 @@ def main():
     ball = make_ball()
     ball_list.append(ball)
  
-    # -------- Main Program Loop -----------
+    # Main loop
     while not done:
-        # --- Event Processing
+        # Key features
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 done = True
             elif event.type == pygame.KEYDOWN:
-                # Space bar! Spawn a new ball.
+                # Space to spawn a new ball
                 if event.key == pygame.K_SPACE:
                     ball = make_ball()
                     ball_list.append(ball)
- 
-        # --- Logic
+                # Up arrow key clears all balls
+                if event.key == pygame.K_UP:
+                    ball_list.clear()
+                    pygame.display.flip()
+                # Down arrow key removes the last ball added
+                if event.key == pygame.K_DOWN:
+                    if len (ball_list) > 0:          
+                     ball_list.pop()
+                else: 
+                    pass
+                # Right arrow key to speed up ball
+                if event.key == pygame.K_RIGHT:
+                    ball.x2 = ball.x2*2
+                    ball.y2 = ball.y2*2
+                # Left arrow key slows down the ball
+                if event.key == pygame.K_LEFT:
+                    ball.x2 = ball.x2/2
+                    ball.y2 = ball.y2/2
+
+        # Ball movement
         for ball in ball_list:
-            # Move the ball's center
-            ball.x += ball.change_x
-            ball.y += ball.change_y
+            ball.x += ball.x2
+            ball.y += ball.y2
  
             # Bounce the ball if needed
             if ball.y > SCREEN_HEIGHT - BALL_SIZE or ball.y < BALL_SIZE:
-                ball.change_y *= -1
+                ball.y2 *= -1
             if ball.x > SCREEN_WIDTH - BALL_SIZE or ball.x < BALL_SIZE:
-                ball.change_x *= -1
+                ball.x2 *= -1
  
         # --- Drawing
         # Set the screen background
