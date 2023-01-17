@@ -1,19 +1,18 @@
 import pygame
 import random
  
-# Define some colors
+# Colors
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
  
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
 BALL_SIZE = 20
+# Random Color for ball each time game launches
 Ball_Color = (random.randrange(255), random.randrange(255), random.randrange(255))
  
 class Ball:
-    """
-    Class to keep track of a ball's location and vector.
-    """
+    # Ball Class
     def __init__(self):
         self.x = 0
         self.y = 0
@@ -28,8 +27,8 @@ def make_ball():
     ball.y = random.randrange(BALL_SIZE, SCREEN_HEIGHT)
  
     # Speed speed of the ball
-    ball.x2 = random.randrange(-2, 3)
-    ball.y2 = random.randrange(-2, 3)
+    ball.x2 = random.randrange(-5, 8)
+    ball.y2 = random.randrange(-5, 8)
  
     return ball
  
@@ -47,11 +46,9 @@ def main():
     # Loop until the user clicks the close button.
     done = False
  
-    # Used to manage how fast the screen updates
     clock = pygame.time.Clock()
  
     ball_list = []
- 
     ball = make_ball()
     ball_list.append(ball)
  
@@ -96,23 +93,18 @@ def main():
             if ball.x > SCREEN_WIDTH - BALL_SIZE or ball.x < BALL_SIZE:
                 ball.x2 *= -1
  
-        # --- Drawing
-        # Set the screen background
+        # Set the screen background color
         screen.fill(BLACK)
  
         # Draw the balls
         for ball in ball_list:
             pygame.draw.circle(screen, Ball_Color, [ball.x, ball.y], BALL_SIZE)
  
-        # --- Wrap-up
-        # Limit to 60 frames per second
         clock.tick(60)
  
-        # Go ahead and update the screen with what we've drawn.
+        # Update the screen to show the balls drawn
         pygame.display.flip()
- 
-    # Close everything down
+
     pygame.quit()
  
-if __name__ == "__main__":
-    main()
+main()
