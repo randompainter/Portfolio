@@ -2,11 +2,11 @@ import pygame
 import random
  
 # Colors
-BLACK = (0, 0, 0)
-WHITE = (255, 255, 255)
+Black = (0, 0, 0)
+White = (255, 255, 255)
  
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 600
+Screen_Height = 800
+Screen_Width = 600
 BALL_SIZE = 20
 # Random Color for ball each time game launches
 Ball_Color = (random.randrange(255), random.randrange(255), random.randrange(255))
@@ -23,8 +23,8 @@ def make_ball():
     # Creating a new ball
     ball = Ball()
     # Starting location of where the ball will spawn
-    ball.x = random.randrange(BALL_SIZE, SCREEN_WIDTH)
-    ball.y = random.randrange(BALL_SIZE, SCREEN_HEIGHT)
+    ball.x = random.randrange(BALL_SIZE, Screen_Height)
+    ball.y = random.randrange(BALL_SIZE, Screen_Width)
  
     # Speed speed of the ball
     ball.x2 = random.randrange(-5, 8)
@@ -38,7 +38,7 @@ def main():
     pygame.init()
  
     # Set the height and width of the screen
-    size = [SCREEN_WIDTH, SCREEN_HEIGHT]
+    size = [Screen_Height, Screen_Width]
     screen = pygame.display.set_mode(size)
     
     pygame.display.set_caption("Bouncing Balls")
@@ -88,13 +88,13 @@ def main():
             ball.y += ball.y2
  
             # Bounce the ball if needed
-            if ball.y > SCREEN_HEIGHT - BALL_SIZE or ball.y < BALL_SIZE:
+            if ball.y > Screen_Width - BALL_SIZE or ball.y < BALL_SIZE:
                 ball.y2 *= -1
-            if ball.x > SCREEN_WIDTH - BALL_SIZE or ball.x < BALL_SIZE:
+            if ball.x > Screen_Height - BALL_SIZE or ball.x < BALL_SIZE:
                 ball.x2 *= -1
  
         # Set the screen background color
-        screen.fill(BLACK)
+        screen.fill(Black)
  
         # Draw the balls
         for ball in ball_list:
