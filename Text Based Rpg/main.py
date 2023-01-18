@@ -23,7 +23,7 @@ class Merchant:
 #enemy class
 class Enemy:
     def __init__(self):
-        self.name = random.choice(["Turtle", "Python", "Giant Lizard", "Baby Seal", "Elite Grasshopper", "Flying Fish", "Wandering Eye", "Dung Beetle"])
+        self.name = random.choice(["Suspicious Turtle", "Python", "Giant Lizard", "Baby Seal", "Elite Grasshopper", "Flying Fish", "Wandering Eye", "Dung Beetle"])
         self.health = random.randint(50, 120)
         self.damage = random.randint(10, 15)
   
@@ -57,10 +57,12 @@ def startGame():
         print("Health:", player.health)
         print("Damage:", player.damage)
         print("Gold:", player.money)
+        
     # Randomly Generate an enemy
     enemy = Enemy()
     print("\nWhile curiously exploring the world you have encountered a wild", enemy.name)
     while player.health > 0 and enemy.health > 0:
+        
         # Action Phase
         print(enemy.name, "Health:", enemy.health)
         print("Your health:", player.health)
@@ -69,6 +71,7 @@ def startGame():
         print("2. Run (End player run)")
         print("3. Heal (70) (Randomly heal for a certain amount)")
         print("4. Special Attack (80) Extra rewards if enemy killed by this attack)")
+        
         # Player input
         action = int(input())
         # Action 1 (Attack)
@@ -116,31 +119,32 @@ def startGame():
                 player.money -= 80
                 # Defeated the enemy
                 if enemy.health <= 0:
-
+                    # Defeating the enemy allows the player to gain some health and gold while increasing their damage
                     print("You have defeated the enemy!")
                     print("\nPlayer Status:")
                     print("Player Health:", player.health)
                     print("Player Damage:", player.damage)
                     print("Total Gold:", player.money)
-                    # Enemy killed by special attack might give bonus stats (Math required)
+                    # Enemy killed by special attack might give bonus stats
+                    # Increase the players stats more since enemy killed by special attack instead of a normal attack
                     player.health += random.randint(30, 50)
-
                     player.damage += random.randint(2, 5)
-
                     player.money += random.randint(20, 60) 
+                    
                     # Generate a random enemy
                     enemy = Enemy()  
                     print("\nYou have encountered another enemy:", enemy.name)
-                    # Enemy Scaling so they don't get one shot 
+                    # Enemy difficulty scaling so they don't get one shot 
                     enemy.health += random.randint(25, 45)
                     enemy.damage += random.randint(2, 4)
             
 
                 else:
-
+                    # Player takes damage from enemy
                     player.health -= enemy.damage 
 
             else:  
+              # if the player does not have enough gold display this and show them their money
               print("You don't have enough money to use this action!", "Gold:", player.money)
     # Print Game Over
     print("Game Over! You died")
