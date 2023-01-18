@@ -76,7 +76,7 @@ def startGame():
             enemy.health -= player.damage
             if enemy.health <= 0:
                 print("You have defeated the enemy!")
-                print("A wild", enemy.name, "has appeared")
+                print("Another wild enemy has appeared!")
                 # Gain a flat bonus if enemy killed by special attack
                 player.health += 10
                 player.damage += 5
@@ -148,4 +148,3 @@ def startGame():
 
 # StartGame function
 startGame()
-  
