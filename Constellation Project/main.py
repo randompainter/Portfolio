@@ -34,7 +34,7 @@ class Star:
     self.r = r
     self.colour = colour
 
-  def drawStars(self):
+  def drawStar(self):
     pygame.draw.circle(screen, self.colour, (self.x, self.y), self.r)
     pygame.display.flip()
 # Connect starOne and starTwo with a line
