@@ -93,7 +93,7 @@ class Star:
 
         # Drawing Stars and connect 
         for i in range(len(stars)):
-          Star.drawStars(stars[i])
+          Star.drawStar(stars[i])
           if (len(stars) > 1 and i + 1 < len(stars)):
             Star.connectStars(stars[i], stars[i + 1])
 
