@@ -80,10 +80,11 @@ def startGame():
             if enemy.health <= 0:
                 print("You have defeated the enemy!")
                 print("A wild", enemy.name, "has appeared")
-                # Gain a flat bonus if enemy killed by special attack
-                player.health += 10
-                player.damage += 5
-                player.money += 10
+                # Gain less stats when enemy is killed using normal attacks
+                player.health += random.randint(15, 30)
+                player.damage += random.randint(2, 5)
+                player.money +=  random.randint(40, 80)
+                
                 enemy = Enemy() 
                 # Scale the enemy
                 enemy.health += random.randint(25, 45)
@@ -106,16 +107,16 @@ def startGame():
         elif action == 3:  
 
             player.health += player.health * random.random()
-            player.money -= 80
+            player.money -= 70
 
             print("You have healed, your health is now", player.health)
         #special attack that costs money 
         elif action == 4:  
-            if player.money >= 20:
-                print("You have this much gold left", player.money - 20)
+            if player.money >= 80:
+                print("You have this much gold left", player.money - 80)
                 print("The", enemy.name, "has taken a hit")
                 enemy.health -= random.randint(30, 60)
-                # Reduce 20 gold
+                # Reduce the amount of gold from player
                 player.money -= 80
                 # Defeated the enemy
                 if enemy.health <= 0:
@@ -125,10 +126,10 @@ def startGame():
                     print("Player Health:", player.health)
                     print("Player Damage:", player.damage)
                     print("Total Gold:", player.money)
-                    # Enemy killed by special attack might give bonus stats
+                    # Enemy killed by special attack might give bonus stats (Higher stats given)
                     # Increase the players stats more since enemy killed by special attack instead of a normal attack
                     player.health += random.randint(30, 50)
-                    player.damage += random.randint(2, 5)
+                    player.damage += random.randint(5, 10)
                     player.money += random.randint(20, 60) 
                     
                     # Generate a random enemy
