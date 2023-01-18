@@ -18,11 +18,10 @@ class Ball:
         self.y = 0
         self.x2 = 0
         self.y2 = 0
- 
+# Create a ball
 def make_ball():
-    # Creating a new ball
     ball = Ball()
-    # Starting location of where the ball will spawn
+    # Location that the ball can spawn in the canvas
     ball.x = random.randrange(BALL_SIZE, SCREEN_WIDTH)
     ball.y = random.randrange(BALL_SIZE, SCREEN_HEIGHT)
  
