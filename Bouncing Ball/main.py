@@ -1,4 +1,4 @@
-import pygame
+mport pygame
 import random
  
 # Colors
@@ -18,14 +18,15 @@ class Ball:
         self.y = 0
         self.x2 = 0
         self.y2 = 0
-# Create a ball
+ 
 def make_ball():
+    # Creating a new ball
     ball = Ball()
-    # Location that the ball can spawn in the canvas
+    # Starting location of where the ball will spawn
     ball.x = random.randrange(BALL_SIZE, SCREEN_WIDTH)
     ball.y = random.randrange(BALL_SIZE, SCREEN_HEIGHT)
  
-    # initial speed speed of the ball
+    # Speed speed of the ball
     ball.x2 = random.randrange(-5, 8)
     ball.y2 = random.randrange(-5, 8)
  
@@ -42,7 +43,7 @@ def main():
     
     pygame.display.set_caption("Bouncing Balls")
  
-    # loop until the user clicks the close button.
+    # Loop until the user clicks the close button.
     done = False
  
     clock = pygame.time.Clock()
