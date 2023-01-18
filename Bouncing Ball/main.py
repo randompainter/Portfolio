@@ -26,7 +26,7 @@ def make_ball():
     ball.x = random.randrange(BALL_SIZE, SCREEN_WIDTH)
     ball.y = random.randrange(BALL_SIZE, SCREEN_HEIGHT)
  
-    # Speed speed of the ball
+    # initial speed speed of the ball
     ball.x2 = random.randrange(-5, 8)
     ball.y2 = random.randrange(-5, 8)
  
@@ -43,7 +43,7 @@ def main():
     
     pygame.display.set_caption("Bouncing Balls")
  
-    # Loop until the user clicks the close button.
+    # loop until the user clicks the close button.
     done = False
  
     clock = pygame.time.Clock()
