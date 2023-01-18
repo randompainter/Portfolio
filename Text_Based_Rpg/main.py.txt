@@ -25,7 +25,7 @@ class Enemy:
     def __init__(self):
         self.name = random.choice(["Turtle", "Python", "Giant Lizard", "Baby Seal", "Elite Grasshopper", "Flying Fish", "Wandering Eye", "Dung Beetle"])
         self.health = random.randint(50, 120)
-        self.damage = random.randint(10, 20)
+        self.damage = random.randint(10, 15)
   
 #Main program
 def startGame():
