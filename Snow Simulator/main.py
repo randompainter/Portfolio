@@ -45,5 +45,5 @@ while not done:
             Snow[i][0] = x
  
     pygame.display.update()
-    timer.tick(60)
+    timer.tick(200)
 pygame.quit()
